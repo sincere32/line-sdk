@@ -10,6 +10,9 @@ require_once 'vendor/autoload.php';
 // การตั้งเกี่ยวกับ bot
 require_once 'bot_settings.php';
 
+// กรณีมีการเชื่อมต่อกับฐานข้อมูล
+//require_once("dbconnect.php");
+
 ///////////// ส่วนของการเรียกใช้งาน class ผ่าน namespace
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient;
@@ -48,9 +51,6 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuild
 // เชื่อมต่อกับ LINE Messaging API
 $httpClient = new CurlHTTPClient(LINE_MESSAGE_ACCESS_TOKEN);
 $bot = new LINEBot($httpClient, array('channelSecret' => LINE_MESSAGE_CHANNEL_SECRET));
- 
-// กรณีมีการเชื่อมต่อกับฐานข้อมูล
-//require_once("dbconnect.php");
  
 // คำสั่งรอรับการส่งค่ามาของ LINE Messaging API
 $content = file_get_contents('php://input');
