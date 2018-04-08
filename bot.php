@@ -5,18 +5,14 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
  
 // include composer autoload
-require_once 'vendor/autoload.php';
+//require_once 'vendor/autoload.php';
  
 // การตั้งเกี่ยวกับ bot
-//require_once 'bot_settings.php';
-include('bot_settings.php');
+require_once 'bot_settings.php';
+
  
 // กรณีมีการเชื่อมต่อกับฐานข้อมูล
 //require_once("dbconnect.php");
-  
-// เชื่อมต่อกับ LINE Messaging API
-$httpClient = new CurlHTTPClient(LINE_MESSAGE_ACCESS_TOKEN);
-$bot = new LINEBot($httpClient, array('channelSecret' => LINE_MESSAGE_CHANNEL_SECRET));
  
 // คำสั่งรอรับการส่งค่ามาของ LINE Messaging API
 $content = file_get_contents('php://input');
